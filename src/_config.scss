@@ -1,0 +1,39 @@
+///
+///
+
+$priorities: (
+  highest: (
+    label: "Highest",
+    text: var(--text-on-accent),
+    bg: "var(--color-red-rgb)",
+    bg-opacity: 0.4,
+  ),
+  high: (
+    label: "High",
+    text: var(--text-on-accent),
+    bg: "var(--color-orange-rgb)",
+    bg-opacity: 0.4,
+  ),
+  medium: (
+    label: "Medium",
+    text: var(--text-on-accent),
+    bg: "var(--color-blue-rgb)",
+    bg-opacity: 0.4,
+  ),
+  low: (
+    label: "Low",
+    text: var(--text-on-accent),
+    bg: "var(--color-green-rgb)",
+    bg-opacity: 0.4,
+  ),
+  lowest: (
+    label: "Lowest",
+    text: var(--text-on-accent),
+    bg: "var(--color-purple-rgb)",
+    bg-opacity: 0.4,
+  ),
+) !default;
+
+$radius: 6px !default;
+$edit-label: "EDIT" !default;
+$postpone-label: "POSTPONE" !default;

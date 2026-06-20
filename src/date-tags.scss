@@ -1,3 +1,5 @@
+@use "config" as config;
+
 ///
 /// Every element that's not the actual
 /// description visually becomes a tag
@@ -15,9 +17,9 @@
       padding: 3px 7px 3px 3px; // don't tell anyone about these pixel sizes
 
       font-size: var(--font-smallest);
-      background-color: var(--modal-background);
-      border: var(--metadata-border) 1px solid;
-      border-radius: 6px;
+      background-color: var(--background-primary);
+      border: var(--tag-border-color) 1px solid;
+      border-radius: config.$radius;
       margin-left: 3px;
       font-weight: var(--font-medium);
       font-variant-numeric: tabular-nums;

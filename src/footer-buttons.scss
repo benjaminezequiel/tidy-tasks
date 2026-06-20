@@ -1,3 +1,5 @@
+@use "config" as config;
+
 ///
 /// Changes the style for EDIT and POSTPONE buttons
 /// (also removes emojis and adds text labels instead)
@@ -26,10 +28,10 @@
 
   // Use ::before to create text labels
   .tasks-edit::before {
-    content: "EDIT";
+    content: config.$edit-label;
   }
 
   .tasks-postpone::before {
-    content: "POSTPONE";
+    content: config.$postpone-label;
   }
 }

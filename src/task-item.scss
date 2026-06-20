@@ -1,3 +1,5 @@
+@use "config" as config;
+
 @mixin task-item {
   .task-list-item {
     margin: unset;
@@ -9,7 +11,7 @@
     padding: 6px 10px;
     background-color: var(--background-primary-alt);
     border: var(--background-modifier-border) 1px solid;
-    border-radius: 6px;
+    border-radius: config.$radius;
     cursor: default;
 
     ///
