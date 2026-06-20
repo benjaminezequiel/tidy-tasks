@@ -1,0 +1,22 @@
+@use "./date-tags.scss" as *;
+@use "./minor-adjustments.scss" as *;
+@use "./footer-buttons.scss" as *;
+@use "./priorities" as *;
+@use "./task-item.scss" as *;
+
+// Added globally cause include elements outside the embedded-block
+@include minor-adjustments();
+@include modal-priorities();
+
+.plugin-tasks-query-result {
+  @include task-item();
+  @include footer-buttons();
+  @include date-tags();
+  @include task-priorities(); // has to come after tags
+
+  // Fix checkbox-positioning
+  .task-list-item-checkbox {
+    margin-inline-start: unset !important;
+    align-self: center !important;
+  }
+}

@@ -1,0 +1,35 @@
+///
+/// Changes the style for EDIT and POSTPONE buttons
+/// (also removes emojis and adds text labels instead)
+///
+
+@mixin footer-buttons {
+  .tasks-edit,
+  .tasks-postpone {
+    max-height: 0;
+    opacity: 0;
+    width: fit-content;
+    height: fit-content;
+
+    &::before {
+      font-size: var(--font-smallest);
+      color: var(--text-muted);
+      font-weight: var(--font-semibold);
+      margin-right: 4px;
+    }
+
+    // Remove default emojis
+    &::after {
+      content: "";
+    }
+  }
+
+  // Use ::before to create text labels
+  .tasks-edit::before {
+    content: "EDIT";
+  }
+
+  .tasks-postpone::before {
+    content: "POSTPONE";
+  }
+}

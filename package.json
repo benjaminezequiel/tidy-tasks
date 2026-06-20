@@ -1,0 +1,14 @@
+{
+  "name": "tidy-tasks",
+  "version": "1.0.0",
+  "description": "SCSS snippet that restyles Obsidian Tasks query results into tidy card-like blocks",
+  "private": true,
+  "scripts": {
+    "build": "sass src/main.scss dist/tidy-tasks.css",
+    "watch": "sass src/main.scss dist/tidy-tasks.css --watch",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}

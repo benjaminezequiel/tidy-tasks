@@ -1,0 +1,97 @@
+$priorities: (
+  highest: (
+    label: "Highest",
+    text: var(--text-on-accent),
+    bg: var(--color-red-rgb),
+    bg-opacity: 0.4,
+  ),
+  high: (
+    label: "High",
+    text: var(--text-on-accent),
+    bg: var(--color-orange-rgb),
+    bg-opacity: 0.4,
+  ),
+  medium: (
+    label: "Medium",
+    text: var(--text-on-accent),
+    bg: var(--color-blue-rgb),
+    bg-opacity: 0.4,
+  ),
+  low: (
+    label: "Low",
+    text: var(--text-on-accent),
+    bg: var(--color-green-rgb),
+    bg-opacity: 0.4,
+  ),
+  lowest: (
+    label: "Lowest",
+    text: var(--text-on-accent),
+    bg: var(--color-purple-rgb),
+    bg-opacity: 0.4,
+  ),
+);
+
+// Traverses the map and creates a style for each priority tag
+@mixin task-priorities {
+  @each $priority, $values in $priorities {
+    .tasks-list-text [data-task-priority="#{$priority}"] {
+      padding: 3px 6px;
+      font-weight: 600;
+      background-color: rgb(
+        #{map-get($values, bg)},
+        #{map-get($values, bg-opacity)}
+      );
+
+      border: 1px
+        solid
+        rgb(#{map-get($values, bg)}, #{map-get($values, bg-opacity)});
+
+      > span {
+        display: none; // remove emoji
+      }
+
+      &::before {
+        content: map-get($values, label);
+        color: #{map-get($values, text)};
+      }
+    }
+
+    // Makes the background of the list item itself also
+    // Change based on the priority
+    .task-list-item:has([data-task-priority="#{$priority}"]) {
+      background-color: rgb(
+        #{map-get($values, bg)},
+        calc(#{map-get($values, bg-opacity)} / 4)
+      );
+      background-color: color-mix(
+        in oklab,
+        var(--background-primary-alt),
+        rgb(#{map-get($values, bg)}) 10%
+      );
+
+      border: 1px
+        solid
+        rgb(#{map-get($values, bg)}, calc(#{map-get($values, bg-opacity)} / 2));
+    }
+  }
+}
+
+// Changes settings color inside setting edit modal
+@mixin modal-priorities {
+  .tasks-modal-priority-section {
+    label {
+      font-weight: var(--font-bold);
+      color: var(--priortiy-custom-color);
+
+      span:nth-child(2) {
+        display: none;
+      }
+    }
+
+    @each $priority, $values in $priorities {
+      #priority-#{$priority} + label {
+        --priortiy-custom-color: rgb(#{map-get($values, bg)});
+      }
+    }
+  }
+}

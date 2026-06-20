@@ -1,0 +1,24 @@
+///
+/// Series of random minor visual changes,
+/// purely optional / personal taste.
+///
+
+@mixin minor-adjustments {
+  // Remove border on hover for tasks embeded blocks
+  .cm-lang-tasks {
+    --embed-block-shadow-hover: none;
+  }
+
+  .tasks-list-text {
+    line-height: 130%;
+  }
+  // Align header with checkboxes
+  .tasks-group-heading {
+    padding-left: 10px;
+
+    // Remove underline from titles
+    .internal-link {
+      text-decoration: none;
+    }
+  }
+}
